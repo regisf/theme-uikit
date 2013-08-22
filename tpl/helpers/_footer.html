@@ -1,0 +1,19 @@
+        <footer class="uk-container uk-container-center" id="footer">
+            <hr />
+            {{tpl:SysBehavior behavior="publicInsideFooter"}}
+            {{tpl:BlogCopyrightNotice}}
+            {{tpl:SysBehavior behavior="publicFooterContent"}}
+        </footer>
+        <script type="application/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="application/javascript" src="{{tpl:BlogThemeURL}}/uikit/js/uikit.min.js"></script>
+        <script type="application/javascript">
+            $(document).ready(function() {
+                var divs = $("#aside-nav").find('div');
+                divs.addClass('uk-panel uk-panel-box');
+                divs.find('h2').addClass('uk-panel-title');
+                $("#search input[type=submit]").addClass('uk-button');
+                $("form").addClass('uk-form');
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+{{tpl:include src="helpers/_begin_common_head.html"}}
+<title>{{tpl:CategoryTitle}} - {{tpl:BlogName}}</title>
+{{tpl:include src="helpers/_end_common_head.html"}}
+{{tpl:include src="helpers/_nav.html"}}
+<div class=" uk-container uk-container-center" id="content">
+    <div class="uk-grid">
+        <div class="uk-width-large-8-10">
+            <h2 class="subtitle">{{tpl:lang In the category:}} "{{tpl:CategoryTitle}}"</h2>
+            <tpl:Entries>
+                <tpl:EntriesHeader>
+                    <section class="article">
+                </tpl:EntriesHeader>
+
+                {{tpl:include src="helpers/_entry.html"}}
+
+                <tpl:EntriesFooter>
+                    </section>
+                    <tpl:Pagination>
+                        <ul class="uk-pagination">
+                            <tpl:PaginationIf end="0">
+                                <li class="uk-pagination-previous">
+                                    <a href="{{tpl:PaginationURL offset="+1"}}">&#171; {{tpl:lang previous entries}}</a>
+                                </li>
+                            </tpl:PaginationIf>
+
+                            <tpl:PaginationIf start="0">
+                                <li class="uk-pagination-next">
+                                    <a href="{{tpl:PaginationURL offset="-1"}}">
+                                        {{tpl:lang next entries}} &#187;
+                                    </a>
+                                </li>
+                            </tpl:PaginationIf>
+                        </ul>
+                    </tpl:Pagination>
+                </tpl:EntriesFooter>
+            </tpl:Entries>
+        </div>
+        {{tpl:include src="helpers/_aside.html"}}
+    </div>
+</div>
+{{tpl:include src="helpers/_footer.html"}}

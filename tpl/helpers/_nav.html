@@ -1,0 +1,28 @@
+<nav class="tm-navbar uk-navbar uk-navbar-attached">
+    <div class="uk-container uk-container-center">
+        <ul class="uk-navbar-nav uk-subnav">
+            <li>
+                <h1>
+                    <a href="{{tpl:BlogURL}}" class="uk-navbar-brand">
+                        {{tpl:uiKitIconURL}} {{tpl:BlogName}}
+                    </a>
+                </h1>
+            </li>
+        <tpl:Categories level="1">
+            <li<tpl:CategoryFirstChildren><tpl:CategoriesHeader> data-uk-dropdown</tpl:CategoriesHeader></tpl:CategoryFirstChildren>>
+                <a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle}}</a>
+                <tpl:CategoryFirstChildren>
+                    <tpl:CategoriesHeader>
+                    <div class="uk-dropdown uk-dropdown-small">
+                    <ul class="uk-nav uk-nav-dropdown">
+                    </tpl:CategoriesHeader>
+                    <li><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle}}</a></li>
+                    <tpl:CategoriesFooter>
+                    </ul>
+                    </tpl:CategoriesFooter>
+            </tpl:CategoryFirstChildren>
+            </li>
+        </tpl:Categories>
+        </ul>
+    </div>
+</nav>

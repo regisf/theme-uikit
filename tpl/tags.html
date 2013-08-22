@@ -1,0 +1,39 @@
+{{tpl:include src="helpers/_begin_common_head.html"}}
+<title>{{tpl:lang Tags}} - {{tpl:BlogName encode_html="1"}}</title>
+{{tpl:include src="helpers/_end_common_head.html"}}
+{{tpl:include src="helpers/_nav.html"}}
+<div class=" uk-container uk-container-center" id="content">
+    <div class="uk-grid">
+        <div class="uk-width-large-8-10" id="tags-list">
+            <h2 class="subtitle">{{tpl:lang All keywords on this blog}}</h2>
+            <table class="uk-table uk-table-hover">
+                <caption>{{tpl:lang All keywords on this blog}}</caption>
+                <thead>
+                    <tr>
+                        <th>{{tpl:lang Keywords}}</th>
+                        <th>{{tpl:lang Articles count}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tpl:Tags>
+                    <tr>
+                        <td>
+                            <a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">
+                                {{tpl:TagID}}&nbsp;
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">
+                            <span class="uk-badge uk-badge-notification">{{tpl:TagCount}} {{tpl:lang posts}}</span>
+                            </a>
+                        </td>
+                    </div>
+                </tpl:Tags>
+
+                </tbody>
+            </table>
+        </div>
+        {{tpl:include src="helpers/_aside.html"}}
+    </div>
+</div>
+{{tpl:include src="helpers/_footer.html"}}

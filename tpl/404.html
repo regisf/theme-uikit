@@ -1,0 +1,20 @@
+{{tpl:include src="helpers/_begin_common_head.html"}}
+<title>{{tpl:lang Page inconnue}} - {{tpl:BlogName}}</title>
+{{tpl:include src="helpers/_end_common_head.html"}}
+{{tpl:include src="helpers/_nav.html"}}
+<div class=" uk-container uk-container-center" id="content">
+    <div class="uk-grid">
+        <div class="uk-width-large-8-10 image404">
+                <h2>{{tpl:lang The page your looking for don't exists}}</h2>
+                <a href="http://{{tpl:BlogLanguage}}.wikipedia.org/wiki/Peugeot_404" title="{{tpl:lang More about this car}}" alt="Peugot 404" />
+                <img src="{{tpl:BlogThemeURL}}/images/404.png" alt="not found" />
+                </a>
+                <div>
+                    <a href="{{tpl:BlogURL}}">{{tpl:lang Back to the home page}}</a>
+                </div>
+        </div>
+        {{tpl:include src="helpers/_aside.html"}}
+    </div>
+</div>
+{{tpl:include src="helpers/_footer.html"}}
+

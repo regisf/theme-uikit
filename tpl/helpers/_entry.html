@@ -1,0 +1,39 @@
+<article class="uk-article">
+    <h3 class="uk-article-title">
+        <a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a>
+    </h3>
+    <p class="uk-article-meta">
+        {{tpl:lang Wrote on}} {{tpl:EntryDate format="%A %d %B %Y"}} |
+        {{tpl:lang view}} : {{tpl:EntryUniqueViewCount}} {{tpl:lang times}} |
+        <tpl:EntryIf show_comments="1">
+            <a href="{{tpl:EntryURL}}#comments">{{tpl:EntryCommentCount}}</a>  |
+	</tpl:EntryIf>
+	<tpl:EntryIf show_pings="1">
+	    <a href="{{tpl:EntryURL}}#pings" class="ping_count">{{tpl:EntryPingCount}}</a> |
+        </tpl:EntryIf>
+	<tpl:EntryIf has_attachment="1">
+            <a href="{{tpl:EntryURL}}#attachments" class="attach_count">{{tpl:EntryAttachmentCount}}</a> |
+        </tpl:EntryIf>
+
+        {{tpl:lang Dans la catégorie :}}<a href="{{tpl:EntryCategoryURL}}" class="uk-badge">{{tpl:EntryCategory}}</a>
+    </p>
+    <p>
+        <tpl:EntryIf extended="1">
+        {{tpl:EntryExcerpt}}
+        </tpl:EntryIf>
+        <tpl:EntryIf extended="0">
+            {{tpl:EntryContent}}
+        </tpl:EntryIf>
+    </p>
+    <tpl:EntryIf >
+    <p>
+        {{tpl:lang Keywords}}
+    <tpl:EntryTags>
+        <a href="{{tpl:TagURL}}" class="uk-badge uk-badge-success">{{tpl:TagID}}</a>
+    </tpl:EntryTags>
+    </p>
+    </tpl:EntryIf>
+    <p class="read-more-container">
+        <a href="{{tpl:EntryURL}}" class="uk-button uk-button-large">{{tpl:lang Read more}} &#187;</a>
+    </p>
+</article>

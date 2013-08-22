@@ -1,0 +1,160 @@
+{{tpl:include src="helpers/_begin_common_head.html"}}
+<tpl:EntryNext><link rel="next" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" /></tpl:EntryNext>
+<tpl:EntryPrevious><link rel="prev" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" /></tpl:EntryPrevious>
+<title>{{tpl:EntryTitle}} - {{tpl:BlogName}}</title>
+{{tpl:include src="helpers/_end_common_head.html"}}
+{{tpl:include src="helpers/_nav.html"}}
+<div class=" uk-container uk-container-center" id="content">
+    <div class="uk-grid">
+        <div class="uk-width-large-8-10">
+            <article class="uk-article">
+                <h2 class="uk-article-title">
+                    <a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a>
+                </h2>
+                <p class="uk-article-meta">
+                    {{tpl:lang &Eacute;crit le}} {{tpl:EntryDate format="%A %d %B %Y"}} |
+                    {{tpl:lang view}} : {{tpl:EntryUniqueViewCount}} {{tpl:lang times}} |
+                    <tpl:EntryIf show_comments="1">
+                        <a href="{{tpl:EntryURL}}#comments">{{tpl:EntryCommentCount}}</a>  |
+                    </tpl:EntryIf>
+                    <tpl:EntryIf show_pings="1">
+                        <a href="{{tpl:EntryURL}}#pings" class="ping_count">{{tpl:EntryPingCount}}</a> |
+                    </tpl:EntryIf>
+                    <tpl:EntryIf has_attachment="1">
+                        <a href="{{tpl:EntryURL}}#attachments" class="attach_count">{{tpl:EntryAttachmentCount}}</a> |
+                    </tpl:EntryIf>
+                    {{tpl:lang In the category:}}<a href="{{tpl:EntryCategoryURL}}" class="uk-badge">{{tpl:EntryCategory}}</a>
+                </p>
+                <p>
+                    {{tpl:lang With keywords:}}
+                    <tpl:EntryTags>
+                        <a href="{{tpl:TagURL}}" class="uk-badge uk-badge-success">{{tpl:TagID}}</a>
+                    </tpl:EntryTags>
+                </p>
+                <p>
+                    {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
+                    <tpl:EntryIf extended="1">
+                    {{tpl:EntryExcerpt}}
+                    </tpl:EntryIf>
+                    {{tpl:EntryContent}}
+                    {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
+                </p>
+                <tpl:Attachments>
+                    <tpl:AttachmentsHeader>
+                    <h3>{{tpl:lang Fichiers attach&eacute;s}}</h3>
+                    <ul id="post-attachment">
+                    </tpl:AttachmentsHeader>
+                        <li><a href="{{tpl:AttachmentURL}}" title="File {{tpl:AttachmentFileName}}">{{tpl:AttachmentFileName}}</a> {{tpl:AttachmentSize}}</li>
+                    <tpl:AttachmentsFooter>
+                    </ul>
+                    </tpl:AttachmentsFooter>
+                </tpl:Attachments>
+
+            </article>
+            <ul class="uk-pagination">
+                <tpl:EntryNext>
+                    <li class="uk-pagination-previous">
+                        <a href="{{tpl:EntryURL}}">&#171; {{tpl:lang Previous}} :  {{tpl:EntryTitle}}</a>
+                    </li>
+                </tpl:EntryNext>
+
+                <tpl:EntryPrevious>
+                    <li class="uk-pagination-next">
+                        <a href="{{tpl:EntryURL}}">
+                            {{tpl:lang Next}} : {{tpl:EntryTitle}}  &#187;
+                        </a>
+                    </li>
+                </tpl:EntryPrevious>
+            </ul>
+    <tpl:EntryIf show_comments="1">
+        <a name="comments"></a>
+            <div id="comments" class="uk-comment-list">
+            <tpl:Comments>
+                <tpl:CommentsHeader>
+                    <h3>{{tpl:lang Commentaires}}</h3>
+                </tpl:CommentsHeader>
+                    <div class="uk-comment">
+                        <div class="uk-comment-header">
+                            <img class="uk-comment-avatar" src="https://gravatar.com/avatar/{{tpl:CommentAuthorMailMD5}}.png?s=50" alt="Gravatar de {{tpl:CommentAuthor}}"/>
+                            <div class="uk-comment-title">{{tpl:CommentAuthorLink}}</div>
+                            <div class="uk-comment-meta">{{tpl:lang On}} {{tpl:CommentDate format="%A %d %b %Y"}}</div>
+                        </div>
+                        <div class="uk-comment-body">
+                        {{tpl:SysBehavior behavior="publicCommentBeforeContent"}}
+                        {{tpl:CommentContent}}
+                        {{tpl:SysBehavior behavior="publicCommentAfterContent"}}
+                        </div>
+                    </div>
+                    <hr/>
+            </tpl:Comments>
+
+            <tpl:EntryIf comments_active="1">
+                <!-- # Information sur les commentaires utilisateur -->
+
+
+                <tpl:SysIfCommentPublished>
+                  <p class="uk-form-success" id="pr">
+                    {{tpl:lang Your comment has been published.}}
+                  </p>
+                </tpl:SysIfCommentPublished>
+
+                <tpl:SysIfCommentPending>
+                  <p class="uk-form-success" id="pr">
+                    {{tpl:lang Your comment has been submitted and  will be reviewed for publication.}}</p>
+                </tpl:SysIfCommentPending>
+
+                <form action="{{tpl:EntryURL}}#pr" method="post" id="comment-form" class="uk-form">
+                    <tpl:SysIfFormError>
+                        <p class="uk-form-danger" id="pr">
+                        {{tpl:SysFormError}}
+                        </p>
+                    </tpl:SysIfFormError>
+                    <tpl:IfCommentPreview>
+                    <div class="uk-width-medium uk-container-center">
+                        <div id="pr" class="uk-panel uk-panel-box uk-panel-box-primary">
+                            <h3>{{tpl:lang Your commentary as it will be displayed}}</h3>
+                                {{tpl:CommentPreviewContent}}
+                            <p class="buttons"><input type="submit" class="submit uk-button uk-button-primary" value="{{tpl:lang send}}" /></p>
+                        </div>
+                    </div>
+                    <hr />
+                    </tpl:IfCommentPreview>
+                    <h3>{{tpl:lang Add your comment}}</h3>
+
+                    {{tpl:SysBehavior behavior="publicCommentFormBeforeContent"}}
+                    <p>
+                        <label>{{tpl:lang Your name}}</label> <input name="c_name" id="c_name" type="text" size="30" maxlength="255" value="{{tpl:CommentPreviewName encode_html="1"}}" />
+                    </p>
+                    <p>
+                        <label>{{tpl:lang Your email address}}</label>
+                         <input name="c_mail" id="c_mail" type="text" size="30" maxlength="255" value="{{tpl:CommentPreviewEmail encode_html="1"}}" />
+                    </p>
+                    <p>
+                        <label>{{tpl:lang Your web site}}</label> <input name="c_site" id="c_site" type="text" size="30" maxlength="255" value="{{tpl:CommentPreviewSite encode_html="1"}}" />
+                    </p>
+                    <p style="display:none"><input name="f_mail" type="text" size="30" maxlength="255" value="" /></p>
+                    <p>
+                        <label>{{tpl:lang Your commentary}}</label>
+                        <textarea name="c_content" id="c_content" cols="35" rows="7">{{tpl:CommentPreviewContent raw="1" encode_html="1"}}</textarea>
+                    </p>
+                    <p class="form-help">
+                        {{tpl:lang HTML code is displayed as text and web addresses are automatically converted.}}
+                    </p>
+                    {{tpl:SysBehavior behavior="publicCommentFormAfterContent"}}
+                    <p>
+                        <label>&nbsp;</label>
+                        <input type="submit" value="{{tpl:lang Pr&eacute;visualiser}}" name="preview" class="uk-button uk-button-primary"/>
+                        <tpl:CommentIfPreview>
+                        <input type="submit" class="submit" value="{{tpl:lang Envoyer}}" />
+                        </tpl:CommentIfPreview>
+                    </p>
+                </form>
+            </tpl:EntryIf>
+        </div>
+        </tpl:EntryIf>
+
+        </div>
+        {{tpl:include src="helpers/_aside.html"}}
+    </div>
+</div>
+{{tpl:include src="helpers/_footer.html"}}

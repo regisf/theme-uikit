@@ -1,0 +1,31 @@
+#content { padding-top: 50px; }
+aside section div.uk-panel-box { margin-bottom: 1em; }
+.tm-navbar {padding: 15px 0;}
+.uk-navbar a { color:black;font-weight: bold;text-decoration: none; }
+.uk-navbar h1 { padding: 0; margin: 0; }
+.uk-navbar ul { list-style: none; }
+.tags ul { list-style:  none; padding-left:0; }
+.tags li { display: inline-block; }
+.tags li { padding-right: 4px; }
+.tags .tag10 {  font-size: 80%; }
+.tags .tag20 {  font-size: 90%; }
+.tags .tag30 {  font-size: 100%; }
+.tags .tag40 {  font-size: 100%; }
+.tags .tag50 {  font-size: 120%; }
+.tags .tag60 {  font-size: 130%; }
+.tags .tag70 {  font-size: 140%; }
+.tags .tag80 {  font-size: 150%; }
+.tags .tag90 {  font-size: 160%; }
+.tags .tag100 { font-size: 170%; }
+.read-more-container { text-align: right; }
+a.uk-badge { color: white; text-decoration: none;}
+footer#footer { margin-top: 30px; }
+form label { display: inline-block; width: 200px;}
+form input[type=text], form textarea { width: 500px;}
+#search input[type=text] { max-width: 72%; }
+div.tag { line-height: 2em; display: inline-table;}
+div.tags a span:first-child { display:  inline-block; width: 200px; }
+div.tags a, div#archives a  { text-decoration: none; }
+.subtitle { border-left: 3px solid #1FA2D6 ; padding-left: 6px; }
+.avatar { margin-top: -10px; max-width: 48px; max-height: 48px; border-radius: 4px; -webkit-border-radius: 4px; }
+.image404 { text-align: center; }

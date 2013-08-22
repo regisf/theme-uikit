@@ -1,0 +1,44 @@
+{{tpl:include src="helpers/_begin_common_head.html"}}
+<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="{{tpl:BlogRSDURL}}" />
+<link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}" />
+<title>{{tpl:lang Accueil}} - {{tpl:BlogName encode_html="1"}}</title>
+<link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
+{{tpl:include src="helpers/_end_common_head.html"}}
+{{tpl:include src="helpers/_nav.html"}}
+<div class=" uk-container uk-container-center" id="content">
+    <div class="uk-grid">
+        <div class="uk-width-large-8-10">
+            <tpl:Entries>
+                <tpl:EntriesHeader>
+                    <section class="article">
+                </tpl:EntriesHeader>
+
+                {{tpl:include src="helpers/_entry.html"}}
+
+                <tpl:EntriesFooter>
+                    </section>
+                    <tpl:Pagination>
+                        <ul class="uk-pagination">
+                            <tpl:PaginationIf end="0">
+                                <li class="uk-pagination-previous">
+                                    <a href="{{tpl:PaginationURL offset="+1"}}">&#171; {{tpl:lang previous entries}}</a>
+                                </li>
+                            </tpl:PaginationIf>
+
+                            <tpl:PaginationIf start="0">
+                                <li class="uk-pagination-next">
+                                    <a href="{{tpl:PaginationURL offset="-1"}}">
+                                        {{tpl:lang next entries}} &#187;
+                                    </a>
+                                </li>
+                            </tpl:PaginationIf>
+                        </ul>
+                    </tpl:Pagination>
+                </tpl:EntriesFooter>
+            </tpl:Entries>
+        </div>
+        {{tpl:include src="helpers/_aside.html"}}
+    </div>
+</div>
+{{tpl:include src="helpers/_footer.html"}}

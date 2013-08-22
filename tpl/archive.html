@@ -1,0 +1,30 @@
+{{tpl:include src="helpers/_begin_common_head.html"}}
+<title>{{tpl:Achives}} - {{tpl:BlogName}}</title>
+{{tpl:include src="helpers/_end_common_head.html"}}
+{{tpl:include src="helpers/_nav.html"}}
+<div class=" uk-container uk-container-center" id="content">
+    <div class="uk-grid">
+        <div class="uk-width-large-8-10">
+            <h2 class="subtitle">{{tpl:lang Archives}}</h2>
+            <tpl:Archives order="desc">
+                <tpl:ArchivesYearHeader>
+                <div id="archives">
+                    <h4>{{tpl:ArchiveDate format="%Y"}}</h4>
+                    <ul>
+                </tpl:ArchivesYearHeader>
+                        <li>
+                            <a href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}">
+                                {{tpl:ArchiveDate encode_html="1" format="%B"}}
+                            </a>
+                            <span class="uk-badge ">{{tpl:ArchiveEntriesCount}}</span>
+                        </li>
+                <tpl:ArchivesYearFooter>
+                    </ul>
+                </div>
+                </tpl:ArchivesYearFooter>
+            </tpl:Archives>
+        </div>
+        {{tpl:include src="helpers/_aside.html"}}
+    </div>
+</div>
+{{tpl:include src="helpers/_footer.html"}}
