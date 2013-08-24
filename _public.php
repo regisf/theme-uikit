@@ -54,16 +54,7 @@ class uiKit
 
     public static function uiKitIf($attr, $content)
     {
-        global $core;
-        if ( ! empty($attr['use_postsstats']))
-        {
-            $usePS = $core->blog->settings->addNamespace('uikit')->get('use_postsstats') or false;
-            if ((boolean) $attr['use_postsstats'] && $core->plugins->moduleExists('postsStats') && $usePS)
-            {
-                return $content;
-            }
-        }
-        return '';
+        return '<?php if ($GLOBALS["core"]->blog->settings->addNamespace("uikit")->get("use_postsstats")): ?>' . $content . '<?php endif; ?>';
     }
 }
 

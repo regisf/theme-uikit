@@ -120,7 +120,7 @@ if ($should_be_triggered) {
     <legend><?= __("Use postsStats"); ?></legend>
     <?php if ($core->plugins->moduleExists('postsStats')): ?>
     <div>
-        <p><?= __("Use postsStats if available in installed plugin") ?></p>
+        <p><?= __("postsStats is installed in your plugins. Do you which to use it ?") ?></p>
         <input type="checkbox" name="use_postsstats" id="use_postsstats" <?php if ($usePS == true): ?>checked="checked"<?php endif; ?> />
         <label for="use_postsstats" style="display: inline-block;"><?= __('Use postsStats'); ?></label>
     </div>
