@@ -13,7 +13,9 @@
                 </h2>
                 <p class="uk-article-meta">
                     {{tpl:lang &Eacute;crit le}} {{tpl:EntryDate format="%A %d %B %Y"}} |
+                    <tpl:UiKitIf use_postsstats="1">
                     {{tpl:lang view}} : {{tpl:EntryUniqueViewCount}} {{tpl:lang times}} |
+                    </tpl:UiKitIf>
                     <tpl:EntryIf show_comments="1">
                         <a href="{{tpl:EntryURL}}#comments">{{tpl:EntryCommentCount}}</a>  |
                     </tpl:EntryIf>

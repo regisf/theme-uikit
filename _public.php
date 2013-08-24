@@ -2,6 +2,7 @@
 
 $core->addBehavior('publicHeadContent', array('uiKit', 'publicHeadcontent'));
 $core->tpl->addValue('uiKitIconURL', array('uiKit', 'uiKitIconURL'));
+$core->tpl->addBlock('UiKitIf', array('uiKit', 'uiKitIf'));
 
 class uiKit
 {
@@ -49,6 +50,20 @@ class uiKit
         }
 
         return '<img src="' . $icon . '" alt="Blog icon" class="' . $iconclass . '" />';
+    }
+
+    public static function uiKitIf($attr, $content)
+    {
+        global $core;
+        if ( ! empty($attr['use_postsstats']))
+        {
+            $usePS = $core->blog->settings->addNamespace('uikit')->get('use_postsstats') or false;
+            if ((boolean) $attr['use_postsstats'] && $core->plugins->moduleExists('postsStats') && $usePS)
+            {
+                return $content;
+            }
+        }
+        return '';
     }
 }
 

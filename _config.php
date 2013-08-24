@@ -64,6 +64,19 @@ else
     }
 }
 
+if ( ! empty($_POST['use_postsstats']))
+{
+    $settings->put('use_postsstats', true, 'boolean');
+    $should_be_triggered = true;
+}
+else
+{
+    $settings->put('use_postsstats', false, 'boolean');
+    $should_be_triggered = true;
+}
+
+$usePS = $settings->get('use_postsstats');
+
 if ($should_be_triggered) {
     $core->blog->triggerBlog();
 }
@@ -101,5 +114,25 @@ if ($should_be_triggered) {
         <label><?= __('Image tag class name'); ?></label>
         <input type="text" name="iconclass" value="<?= $iconclass ?>" />
     </div>
+    <?php endif; ?>
+</fieldset>
+<fieldset>
+    <legend><?= __("Use postsStats"); ?></legend>
+    <?php if ($core->plugins->moduleExists('postsStats')): ?>
+    <div>
+        <p><?= __("Use postsStats if available in installed plugin") ?></p>
+        <input type="checkbox" name="use_postsstats" id="use_postsstats" <?php if ($usePS == true): ?>checked="checked"<?php endif; ?> />
+        <label for="use_postsstats" style="display: inline-block;"><?= __('Use postsStats'); ?></label>
+    </div>
+    <?php else: ?>
+        <p><?= __('postStats allow to count views per post. It may be found '); ?>
+            <a href="https://github.com/christophercrouzet/dotclear-plugins-postsStats">
+            <?= __("here (original by Christopher Crouzet)") ?>
+            </a>
+            <?= __('or') ?>
+            <a href="https://github.com/regisf/dotclear-plugins-postsStats">
+                <?= __("here for my fork") ?>
+            </a>
+        </p>
     <?php endif; ?>
 </fieldset>
