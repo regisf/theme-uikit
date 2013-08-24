@@ -51,9 +51,11 @@ if ( ! isset($fileurl))
 
 if ( ! empty($_POST['iconclass']))
 {
-    $iconclass = $_POST['iconclass'];
-    $settings->put('iconclass', $iconclass, 'string');
-    $should_be_triggered = true;
+    $iconclass = trim($_POST['iconclass']);
+    if ($iconclass != '' && $settings->get('iconclass') != '') {
+        $settings->put('iconclass', $iconclass, 'string');
+        $should_be_triggered = true;
+    }
 }
 else
 {
